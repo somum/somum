@@ -94,30 +94,33 @@
 				<div class="row">
 					<div class="col-md-6">
 						<div class="left_img">
-							<figure>
-							<img style="border: 10px solid #EEE; margin-left:20px;" width="600" src="img/project/demand.png" class="enlarge" alt="">
-							<figcaption  style="margin-left:238px">Fig : Product demand forecasting</figcaption>
-							</figure>
+						  <figure>
+							<video style="border: 10px solid #EEE; margin-left:20px;" width="600" controls controls poster="img/demand-forecast-thumb.png">
+							  <source src="videos/demand-forecast.mp4" type="video/mp4">
+							  Your browser does not support the video tag.
+							</video>
+							<figcaption style="margin-left:238px">Fig : Product Demand Forecast</figcaption>
+						  </figure>
 						</div>
-					</div>
+					  </div>
 					<div class="offset-md-1 col-md-5">
 						<div class="portfolio_right_text mt-30">
-							<h4>Market basket analysis & demand forecast</h4><h6>(Time series forecasting)</h6>
+							<h4>Product Demand Forecast</h4>
 							<p>
 							<div style="margin-left:17px;">
-							<ul style="list-style-type:square">
-									<li>Developed deep Learning based feature to predict product demand for next 7 days and 1/2baskets with item for next purchase</a>
-									</li>
-									<li>Data pre-processing and training of custom ’Long Short-Term Memory (LSTM)’ model.
-									</li>	
-									<li>Prepared dynamic evaluation of features in front-end.
-									</li>	
-								</ul></div>
+					
+								<ul style="list-style-type:square">
+									<li><strong>Project Overview:</strong> Developed and led a team in creating machine learning and deep learning models for <strong>accurate sales forecasting</strong> of a specific product. Utilized various models including <strong>FBProphet, ARIMA, XGBoost, LSTM, Temporal Fusion Transformer, and N-Beats</strong>. Addressed challenges such as handling <strong>spikes</strong> and <strong>data volume</strong>, ultimately adopting <strong>FBProphet</strong> for its <strong>speed and accuracy</strong>. Deployed the project using <strong>FastAPI</strong> and <strong>GYOMUDB (local oracle database)</strong> for data acquisition, with an API customizable for <strong>forecasting days</strong> and <strong>product ID</strong>.</li>
+									<li><strong>Deployment:</strong> Leveraged <strong>Docker</strong> for containerization, ensuring consistent deployment across environments. Utilized <strong>Nginx</strong> as a web server and reverse proxy for optimized routing and load balancing. Employed <strong>uWSGI</strong> as the application server interface to enhance performance and manage application processes.</li>
+									<li><strong>User Interaction:</strong> Users can easily input the <strong>product code</strong> and specify the number of <strong>forecasting days</strong> to receive accurate sales predictions for the chosen product.</li>
+									<li><strong>Models & Library:</strong> FBProphet, ARIMA, XGBoost, Temporal Fusion Transformer, N-Beats, TensorFlow</li>
+								  </ul>
+							<ul class="list" style="margin-top: 10px;">
+								<li><b><strong>My Role:</strong> Led the team in Model Building, Dataset Management, and API Deployment</b></li>
+								<li><b>Used Tools:  Python, Tensorflow, NumPy, Pandas, Matplotlib, Scikit-learn, Flask, REST.</b></li>
 
-							<ul class="list">
-								<li><b>Used Tools: Python, Tensorflow, NumPy, Pandas, Matplotlib, Scikit-learn.</b></li>
-								<li>Demo: <a href="https://youtu.be/V8RVrpX-65E">Project Link</a></li>
-							</ul></div>
+							</ul>
+						</div>
 							   
 							</p>
 							<!--<ul class="list">
