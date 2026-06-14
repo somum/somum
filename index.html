@@ -1,986 +1,2037 @@
 <!DOCTYPE html>
-<html lang="zxx" class="no-js">
-
+<html lang="en">
 <head>
-	<!-- Mobile Specific Meta -->
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<!-- Favicon-->
-	<link rel="shortcut icon" href="img/fav.png">
-	<!-- Author Meta -->
-	<meta name="author" content="colorlib">
-	<!-- Meta Description -->
-	<meta name="description" content="">
-	<!-- Meta Keyword -->
-	<meta name="keywords" content="">
-	<!-- meta character set -->
-	<meta charset="UTF-8">
-	<!-- Site Title -->
-	<title>Saiful Personal</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MD Saiful Islam — Senior AI Engineer</title>
+  <meta name="description" content="Senior AI Engineer specializing in LLMs, RAG systems, generative AI, computer vision, and production ML systems. Based in Tokyo, Japan.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-	<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,600,700,900" rel="stylesheet">
-	<!--
-			CSS
-			============================================= -->
-	<link rel="stylesheet" href="css/linearicons.css">
-	<link rel="stylesheet" href="css/font-awesome.min.css">
-	<link rel="stylesheet" href="css/bootstrap.css">
-	<link rel="stylesheet" href="css/magnific-popup.css">
-	<link rel="stylesheet" href="css/nice-select.css">
-	<link rel="stylesheet" href="css/animate.min.css">
-	<link rel="stylesheet" href="css/owl.carousel.css">
-	<link rel="stylesheet" href="css/main.css">
-	<link rel="stylesheet" href="css/animate.css">
-	
-	<link rel="stylesheet" href="C:/Users/User/Desktop/web/v1/jackson/css/icomoon.css">
-	<!-- Bootstrap  -->
-	
-	<!-- Flexslider  -->
-	<link rel="stylesheet" href="C:/Users/User/Desktop/web/v1/jackson/css/flexslider.css">
-	<!-- Flaticons  -->
-	<!-- Owl Carousel -->
-	<link rel="stylesheet" href="C:/Users/User/Desktop/web/v1/jackson/css/owl.carousel.min.css">
-	<link rel="stylesheet" href="C:/Users/User/Desktop/web/v1/jackson/owl.theme.default.min.css">
-	<!-- Theme style  -->
-	<link rel="stylesheet" href="C:/Users/User/Desktop/web/v1/jackson/css/style.css">
-	
-	
-	<!-- Modernizr JS -->
-	<script src="C:/Users/User/Desktop/web/v1/jackson/js/modernizr-2.6.2.min.js"></script>
+    :root {
+      --bg: #050a14;
+      --bg2: #090f1e;
+      --bg3: #0d1526;
+      --card: rgba(255,255,255,0.04);
+      --card-border: rgba(255,255,255,0.08);
+      --accent: #6366f1;
+      --accent2: #8b5cf6;
+      --accent3: #06b6d4;
+      --green: #10b981;
+      --text: #e2e8f0;
+      --muted: #94a3b8;
+      --subtle: #475569;
+      --radius: 16px;
+      --radius-sm: 8px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ── Animated background ── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 50% at 10% 10%, rgba(99,102,241,0.12) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 40% at 90% 80%, rgba(6,182,212,0.08) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 30% at 50% 50%, rgba(139,92,246,0.05) 0%, transparent 60%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ── Nav ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      backdrop-filter: blur(20px);
+      background: rgba(5,10,20,0.8);
+      border-bottom: 1px solid var(--card-border);
+      padding: 0 2rem;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 1.2rem;
+      background: linear-gradient(135deg, var(--accent), var(--accent3));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--text); }
+
+    .nav-cta {
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color: #fff !important;
+      padding: 0.5rem 1.25rem;
+      border-radius: 40px;
+      font-size: 0.8rem !important;
+    }
+
+    .hamburger { display: none; cursor: pointer; color: var(--text); font-size: 1.4rem; }
+
+    /* ── Sections wrapper ── */
+    main { position: relative; z-index: 1; }
+
+    section { padding: 6rem 0; }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* ── Section labels ── */
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--accent3);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    .section-label::before {
+      content: '';
+      width: 24px;
+      height: 1px;
+      background: var(--accent3);
+    }
+
+    h2.section-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 3rem;
+    }
+
+    /* ── Hero ── */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: 64px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(16,185,129,0.1);
+      border: 1px solid rgba(16,185,129,0.3);
+      color: var(--green);
+      padding: 0.35rem 1rem;
+      border-radius: 40px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-badge::before {
+      content: '';
+      width: 8px;
+      height: 8px;
+      background: var(--green);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+
+    .hero-name {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-name span {
+      background: linear-gradient(135deg, #fff 30%, var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(1.2rem, 3vw, 1.8rem);
+      font-weight: 500;
+      color: var(--accent3);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-desc {
+      font-size: 1rem;
+      color: var(--muted);
+      max-width: 560px;
+      margin-bottom: 2.5rem;
+      line-height: 1.8;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 2rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .stat {
+      text-align: center;
+    }
+
+    .stat-num {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, var(--accent), var(--accent3));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .stat-label {
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-top: 0.2rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color: #fff;
+      text-decoration: none;
+      padding: 0.8rem 2rem;
+      border-radius: 40px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: opacity 0.2s, transform 0.2s;
+      box-shadow: 0 4px 24px rgba(99,102,241,0.3);
+    }
+
+    .btn-primary:hover { opacity: 0.9; transform: translateY(-2px); }
+
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      border: 1px solid var(--card-border);
+      color: var(--text);
+      text-decoration: none;
+      padding: 0.8rem 2rem;
+      border-radius: 40px;
+      font-weight: 500;
+      font-size: 0.9rem;
+      transition: border-color 0.2s, background 0.2s;
+      backdrop-filter: blur(8px);
+    }
+
+    .btn-outline:hover { border-color: var(--accent); background: rgba(99,102,241,0.08); }
+
+    .hero-avatar {
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      position: relative;
+      flex-shrink: 0;
+    }
+
+    .hero-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 3px solid rgba(99,102,241,0.4);
+      display: block;
+    }
+
+    .hero-avatar-ring {
+      position: absolute;
+      inset: -12px;
+      border-radius: 50%;
+      border: 1px solid rgba(99,102,241,0.2);
+      animation: spin 20s linear infinite;
+    }
+
+    .hero-avatar-ring::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 50%;
+      width: 8px; height: 8px;
+      background: var(--accent);
+      border-radius: 50%;
+      transform: translateX(-50%);
+      box-shadow: 0 0 12px var(--accent);
+    }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .hero-social {
+      display: flex;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .hero-social a {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      border: 1px solid var(--card-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s, border-color 0.2s, background 0.2s;
+    }
+
+    .hero-social a:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+      background: rgba(99,102,241,0.1);
+    }
+
+    /* ── Cards ── */
+    .card {
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius);
+      padding: 2rem;
+      backdrop-filter: blur(8px);
+      transition: border-color 0.3s, transform 0.3s;
+    }
+
+    .card:hover {
+      border-color: rgba(99,102,241,0.3);
+      transform: translateY(-4px);
+    }
+
+    /* ── About ── */
+    #about .about-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .about-text p {
+      color: var(--muted);
+      margin-bottom: 1.2rem;
+      line-height: 1.8;
+    }
+
+    .about-highlights {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .highlight-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 1.2rem;
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-sm);
+    }
+
+    .highlight-icon {
+      width: 36px;
+      height: 36px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      flex-shrink: 0;
+    }
+
+    .highlight-text strong {
+      display: block;
+      font-size: 0.85rem;
+      color: var(--text);
+      margin-bottom: 0.2rem;
+    }
+
+    .highlight-text span {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    /* ── Experience ── */
+    .timeline {
+      position: relative;
+      padding-left: 2rem;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0; bottom: 0;
+      width: 1px;
+      background: linear-gradient(to bottom, var(--accent), transparent);
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 3rem;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -2.35rem;
+      top: 0.4rem;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 12px var(--accent);
+    }
+
+    .timeline-meta {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 0.8rem;
+    }
+
+    .timeline-date {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--accent3);
+      background: rgba(6,182,212,0.1);
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+    }
+
+    .timeline-company {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .timeline-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.3rem;
+    }
+
+    .timeline-subtitle {
+      font-size: 0.85rem;
+      color: var(--accent);
+      margin-bottom: 1rem;
+      font-weight: 500;
+    }
+
+    .project-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .project-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-sm);
+      padding: 1.2rem 1.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-card::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 3px;
+      background: linear-gradient(to bottom, var(--accent), var(--accent3));
+      border-radius: 3px;
+    }
+
+    .project-card-title {
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: var(--text);
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .project-card-desc {
+      font-size: 0.83rem;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 0.8rem;
+    }
+
+    .tech-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .tech-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--accent3);
+      background: rgba(6,182,212,0.08);
+      border: 1px solid rgba(6,182,212,0.2);
+      padding: 0.15rem 0.5rem;
+      border-radius: 4px;
+    }
+
+    .metric-tag {
+      font-size: 0.72rem;
+      color: var(--green);
+      background: rgba(16,185,129,0.1);
+      border: 1px solid rgba(16,185,129,0.2);
+      padding: 0.15rem 0.5rem;
+      border-radius: 4px;
+      font-weight: 600;
+    }
+
+    /* ── Skills ── */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .skill-category h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .skill-category h3 i {
+      color: var(--accent);
+    }
+
+    .skill-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .pill {
+      font-size: 0.78rem;
+      padding: 0.3rem 0.75rem;
+      border-radius: 20px;
+      border: 1px solid var(--card-border);
+      color: var(--muted);
+      background: var(--card);
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .pill:hover {
+      border-color: var(--accent);
+      color: var(--text);
+    }
+
+    .pill.featured {
+      border-color: rgba(99,102,241,0.4);
+      color: #a5b4fc;
+      background: rgba(99,102,241,0.08);
+    }
+
+    /* ── Publications ── */
+    .pub-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    .pub-card {
+      display: flex;
+      gap: 1.5rem;
+      align-items: flex-start;
+      padding: 1.5rem;
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-sm);
+      transition: border-color 0.3s;
+    }
+
+    .pub-card:hover { border-color: rgba(99,102,241,0.3); }
+
+    .pub-type {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.6rem;
+      border-radius: 4px;
+      white-space: nowrap;
+      margin-top: 0.2rem;
+    }
+
+    .pub-type.conf { background: rgba(99,102,241,0.15); color: var(--accent); border: 1px solid rgba(99,102,241,0.3); }
+    .pub-type.workshop { background: rgba(139,92,246,0.15); color: #a78bfa; border: 1px solid rgba(139,92,246,0.3); }
+    .pub-type.chapter { background: rgba(6,182,212,0.15); color: var(--accent3); border: 1px solid rgba(6,182,212,0.3); }
+
+    .pub-info h4 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.4rem;
+      line-height: 1.5;
+    }
+
+    .pub-info p {
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin-bottom: 0.5rem;
+    }
+
+    .pub-link {
+      font-size: 0.8rem;
+      color: var(--accent);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .pub-link:hover { text-decoration: underline; }
+
+    /* ── Education ── */
+    .edu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .edu-card {
+      padding: 1.5rem 2rem;
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius);
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.3s;
+    }
+
+    .edu-card:hover { border-color: rgba(99,102,241,0.3); }
+
+    .edu-card::after {
+      content: '';
+      position: absolute;
+      top: 0; right: 0;
+      width: 80px; height: 80px;
+      background: radial-gradient(circle, rgba(99,102,241,0.1) 0%, transparent 70%);
+    }
+
+    .edu-year {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--accent3);
+      margin-bottom: 0.8rem;
+    }
+
+    .edu-degree {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.4rem;
+    }
+
+    .edu-school {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    /* ── Achievements ── */
+    .achievements-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.2rem;
+    }
+
+    .achievement-card {
+      padding: 1.5rem;
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-sm);
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      transition: border-color 0.3s;
+    }
+
+    .achievement-card:hover { border-color: rgba(99,102,241,0.3); }
+
+    .achievement-icon {
+      font-size: 1.4rem;
+      flex-shrink: 0;
+    }
+
+    .achievement-card h4 {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.3rem;
+    }
+
+    .achievement-card p {
+      font-size: 0.8rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* ── Contact ── */
+    #contact .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .contact-info h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 1rem;
+    }
+
+    .contact-info p {
+      color: var(--muted);
+      margin-bottom: 2rem;
+      line-height: 1.8;
+    }
+
+    .contact-items {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .contact-item-icon {
+      width: 42px;
+      height: 42px;
+      background: rgba(99,102,241,0.1);
+      border: 1px solid rgba(99,102,241,0.2);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent);
+      flex-shrink: 0;
+    }
+
+    .contact-item-text span {
+      font-size: 0.75rem;
+      color: var(--muted);
+      display: block;
+    }
+
+    .contact-item-text a,
+    .contact-item-text strong {
+      font-size: 0.9rem;
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .contact-item-text a:hover { color: var(--accent); }
+
+    .contact-socials {
+      display: flex;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .social-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.6rem 1.2rem;
+      border-radius: 8px;
+      border: 1px solid var(--card-border);
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 500;
+      transition: all 0.2s;
+    }
+
+    .social-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: rgba(99,102,241,0.08);
+    }
+
+    .langs-section { margin-top: 2rem; }
+
+    .langs-section h4 {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 1rem;
+    }
+
+    .lang-bars { display: flex; flex-direction: column; gap: 0.8rem; }
+
+    .lang-bar {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .lang-name {
+      font-size: 0.82rem;
+      color: var(--muted);
+      width: 70px;
+      flex-shrink: 0;
+    }
+
+    .lang-track {
+      flex: 1;
+      height: 4px;
+      background: rgba(255,255,255,0.06);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .lang-fill {
+      height: 100%;
+      border-radius: 4px;
+      background: linear-gradient(90deg, var(--accent), var(--accent3));
+    }
+
+    .lang-level {
+      font-size: 0.72rem;
+      color: var(--subtle);
+      width: 60px;
+      text-align: right;
+      flex-shrink: 0;
+    }
+
+    /* ── Footer ── */
+    footer {
+      border-top: 1px solid var(--card-border);
+      padding: 2rem 0;
+      text-align: center;
+      color: var(--subtle);
+      font-size: 0.82rem;
+    }
+
+    /* ── AI Chat Widget ── */
+  #ai-chat-btn {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 999;
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 24px rgba(99,102,241,0.45);
+    transition: transform 0.2s, box-shadow 0.2s;
+    color: #fff;
+    font-size: 1.3rem;
+  }
+
+  #ai-chat-btn:hover {
+    transform: scale(1.08);
+    box-shadow: 0 6px 32px rgba(99,102,241,0.6);
+  }
+
+  #ai-chat-btn .chat-badge {
+    position: absolute;
+    top: -4px; right: -4px;
+    width: 18px; height: 18px;
+    background: var(--green);
+    border-radius: 50%;
+    border: 2px solid var(--bg);
+    animation: pulse 2s infinite;
+  }
+
+  #ai-chat-panel {
+    position: fixed;
+    bottom: 6rem;
+    right: 2rem;
+    z-index: 998;
+    width: 380px;
+    max-height: 560px;
+    background: #0d1526;
+    border: 1px solid rgba(99,102,241,0.3);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 24px 64px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.04);
+    transform: translateY(20px) scale(0.96);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.25s ease, opacity 0.25s ease;
+    overflow: hidden;
+  }
+
+  #ai-chat-panel.open {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  .chat-header {
+    padding: 1rem 1.2rem;
+    background: linear-gradient(135deg, rgba(99,102,241,0.15), rgba(139,92,246,0.1));
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .chat-header-avatar {
+    width: 36px; height: 36px;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    flex-shrink: 0;
+  }
+
+  .chat-header-info strong {
+    display: block;
+    font-size: 0.88rem;
+    color: var(--text);
+    font-family: 'Space Grotesk', sans-serif;
+  }
+
+  .chat-header-info span {
+    font-size: 0.72rem;
+    color: var(--green);
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+  }
+
+  .chat-header-info span::before {
+    content: '';
+    width: 6px; height: 6px;
+    background: var(--green);
+    border-radius: 50%;
+    display: inline-block;
+  }
+
+  .chat-close {
+    margin-left: auto;
+    background: none;
+    border: none;
+    color: var(--muted);
+    cursor: pointer;
+    font-size: 1rem;
+    padding: 0.2rem;
+    transition: color 0.2s;
+  }
+
+  .chat-close:hover { color: var(--text); }
+
+  .chat-messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    scroll-behavior: smooth;
+  }
+
+  .chat-messages::-webkit-scrollbar { width: 4px; }
+  .chat-messages::-webkit-scrollbar-track { background: transparent; }
+  .chat-messages::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 4px; }
+
+  .msg {
+    max-width: 88%;
+    font-size: 0.83rem;
+    line-height: 1.6;
+    padding: 0.65rem 0.9rem;
+    border-radius: 14px;
+    animation: msgIn 0.2s ease;
+  }
+
+  @keyframes msgIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .msg.bot {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.07);
+    color: var(--text);
+    border-bottom-left-radius: 4px;
+    align-self: flex-start;
+  }
+
+  .msg.user {
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    color: #fff;
+    border-bottom-right-radius: 4px;
+    align-self: flex-end;
+  }
+
+  .msg.typing {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+    padding: 0.75rem 1rem;
+  }
+
+  .msg.typing span {
+    width: 6px; height: 6px;
+    background: var(--muted);
+    border-radius: 50%;
+    animation: bounce 1.2s infinite;
+  }
+
+  .msg.typing span:nth-child(2) { animation-delay: 0.2s; }
+  .msg.typing span:nth-child(3) { animation-delay: 0.4s; }
+
+  @keyframes bounce {
+    0%, 60%, 100% { transform: translateY(0); }
+    30% { transform: translateY(-6px); }
+  }
+
+  .chat-suggestions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    padding: 0 1rem 0.6rem;
+  }
+
+  .chat-suggestion {
+    font-size: 0.72rem;
+    padding: 0.3rem 0.7rem;
+    border-radius: 20px;
+    border: 1px solid rgba(99,102,241,0.3);
+    color: #a5b4fc;
+    background: rgba(99,102,241,0.08);
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s;
+    white-space: nowrap;
+  }
+
+  .chat-suggestion:hover {
+    background: rgba(99,102,241,0.18);
+    border-color: var(--accent);
+  }
+
+  .chat-input-row {
+    display: flex;
+    gap: 0.5rem;
+    padding: 0.75rem 1rem;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    align-items: flex-end;
+  }
+
+  #chat-input {
+    flex: 1;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+    padding: 0.6rem 0.9rem;
+    color: var(--text);
+    font-size: 0.82rem;
+    font-family: 'Inter', sans-serif;
+    resize: none;
+    outline: none;
+    transition: border-color 0.2s;
+    max-height: 100px;
+    line-height: 1.5;
+  }
+
+  #chat-input:focus { border-color: rgba(99,102,241,0.5); }
+  #chat-input::placeholder { color: var(--subtle); }
+
+  #chat-send {
+    width: 36px; height: 36px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 0.85rem;
+    flex-shrink: 0;
+    transition: opacity 0.2s, transform 0.2s;
+  }
+
+  #chat-send:hover { opacity: 0.85; transform: scale(1.05); }
+  #chat-send:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }
+
+  @media (max-width: 500px) {
+    #ai-chat-panel { width: calc(100vw - 2rem); right: 1rem; bottom: 5.5rem; }
+    #ai-chat-btn { right: 1rem; bottom: 1rem; }
+  }
+
+  /* ── Fade-in animation ── */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 900px) {
+      .hero-grid { grid-template-columns: 1fr; }
+      .hero-avatar { display: none; }
+      #about .about-grid { grid-template-columns: 1fr; }
+      #contact .contact-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 700px) {
+      .nav-links { display: none; }
+      .hamburger { display: block; }
+      .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 64px; left: 0; right: 0;
+        background: rgba(5,10,20,0.98);
+        padding: 1.5rem 2rem;
+        border-bottom: 1px solid var(--card-border);
+        gap: 1.2rem;
+      }
+      .hero-stats { flex-wrap: wrap; gap: 1.2rem; }
+    }
+  </style>
 </head>
-
 <body>
 
-	<!-- Start Preloader Area -->
-	<div class="preloader-area">
-		<div class="loader-box">
-			<div class="loader"></div>
-		</div>
-	</div>
-	<!-- End Preloader Area -->
+<!-- ── NAV ── -->
+<nav>
+  <a href="#" class="nav-logo">saiful.ai</a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#publications">Research</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#contact" class="nav-cta">Contact</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger"><i class="fas fa-bars"></i></div>
+</nav>
 
+<main>
 
-	<!-- Start Header Area -->
-	<header id="header">
-		<div class="container main-menu">
-			<div class="row align-items-center d-flex">
-				<div id="logo">
-					<a href="index.html"><img src="img/logo.png" alt="" title="" /></a>
-				</div>
-				<nav id="nav-menu-container">
-					<ul class="nav-menu">
-						<li class=""><a class="active" href="index.html">Home</a></li>
-						<li><a href="#experience">Experience</a></li>
-						<li><a href="#education">Education</a></li>
-						<li><a href="#publications">Publications</a></li>
-						<li><a href="#work">Latest Works</a></li>
-						<li><a href="#skills">Skills</a></li>
-						<li><a href="contact.html">Contact</a></li>
-						<!--<li class="menu-has-children"><a href="">Blog</a>
-							<ul>
-								<li><a href="blog-home.html">Blog Home</a></li>
-								<li><a href="blog-single.html">Blog Single</a></li>
-							</ul>
-						</li>-->
-					</ul>
-				</nav>
-			</div>
-		</div>
-	</header>
-	<!-- End Header Area -->
+<!-- ── HERO ── -->
+<section id="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-content">
+        <div class="hero-badge">Available for opportunities</div>
 
+        <h1 class="hero-name">
+          <span>MD Saiful Islam</span>
+        </h1>
+        <p class="hero-title">Senior AI Engineer &amp; Team Lead</p>
+        <p class="hero-desc">
+          5+ years building production-grade AI systems — from enterprise RAG platforms and LLM inference pipelines to generative AI and computer vision solutions. Currently leading AI development at <strong style="color:var(--text)">MASS Holdings Corporation</strong>, Tokyo.
+        </p>
 
-	<!-- start banner Area -->
-	<section class="home-banner-area">
-		<div class="container">
-			<div class="row d-flex align-items-center" style="height: 500px;">
-				<div class="banner-content col-lg-6 col-md-12 justify-content-center">
-					<h1 class="wow fadeInUp" data-wow-duration="0.2s" data-wow-delay="0.2s">Md. Saiful Islam</h1>
-					<div class="designation mb-50 wow fadeInUp" data-wow-duration="0.2s" data-wow-delay="0.2s" style="white-space: nowrap;">
-						AI Engineer
-					</br><span class="designer"><a href="https://www.mass-hd.com/"></a> Mass Holdings Company, Ltd.</span>
-					</div>
-
-					<a href="#" class="primary-btn" data-text="Hire Me">
-						<span>H</span>
-						<span>i</span>
-						<span>r</span>
-						<span>e</span>
-						<span> </span>
-						<span>M</span>
-						<span>e</span>
-					</a>
-				</div>
-				<div class="banner-img col-lg-6 col-md-6 align-self-end">
-					<img class="img-fluid" src="img/10.saiful.jpg" alt="" style="max-width: 50%;">
-				</div>
-			</div>
-		</div>
-	</section>
-	
-	<!-- End banner Area -->
-
-
-	<!-- Start brands Area -->
-	<section class="brands-area">
-		<div class="container">
-			<div class="brand-wrap" style="padding: 30px 14px; margin-top:-32px;">
-				<div class="row align-items-center active-brand-carusel justify-content-start no-gutters">
-
-					<div class="col">
-						<a href="https://scholar.google.com/citations?hl=en&user=fwoac0YAAAAJ"><img class="mx-auto" src="img/brand/google-scolar.jpg" alt="" style="padding-left: 5%; max-width: 60%;"></a>
-					</div>
-					<div class="col">
-						<a href="https://www.linkedin.com/in/saiful-somum/"><img class="mx-auto" src="img/brand/b1.png" alt="linkedin" style="max-width: 60%; padding-top: 5%;"></a>
-					</div>
-					<div class="col">
-						<a href="https://github.com/somum"><img class="mx-auto" src="img/brand/b2.png" alt="github" style="max-width: 60%; padding-top: 5%;"></a>
-					</div>
-					<div class="col">
-						<a href="https://medium.com/@saiful.somum/real-time-hair-color-simulation-c5441d5dcd8c"><img class="mx-auto" src="img/brand/b4.png" alt="medium" style="max-width: 70%; padding-top: 14%;"></a>
-					</div>
-					<div class="col">
-						<a href="https://www.hackerrank.com/saiful_somum"><img class="mx-auto" src="img/brand/b3.png" alt="hackerRank" style="max-width: 80%; padding-top: 12%;"></a>
-					</div>
-
-				</div>
-			</div>
-		</div>
-	</section>
-	<!-- End brands Area -->
-
-
-	<!-- Start About Area -->
-	<section class="about-area section-gap" >
-		<div class="container">
-			<div class="row align-items-center justify-content-between">
-					<div class="section-title">
-						<h2>Career Objective</h2>
-					</div>
-					<div class="mb-50 wow fadeIn" data-wow-duration=".8s">
-
-						<p>I am a highly skilled and experienced <strong>Software Engineer</strong> with a focus on <strong>Artificial Intelligence (AI)</strong>. I have a strong background in developing AI-based projects and have a proven track record of success in both Japan and Bangladesh.</p>
-
-						<p>Currently employed as an <strong>AI Software Engineer</strong> at <a href="https://www.mass-hd.com/"><strong>Mass Holdings Company Limited</strong></a> in Tokyo, Japan. My primary focus is on developing a <strong>Hairstyle Generator</strong> using <strong>GAN technology</strong>, which has proven to be both challenging and fulfilling. During my time at the company, I have successfully completed three AI-based projects. One of these projects involved creating a <strong> Real-time hair color simulation</strong> with <strong>U-NET</strong> based Pretrained model <strong>MobileNetV3</strong>, while another focused on product demand forecasting in the warehouse with time series models like <strong> FBProphet, N-Beats, Temporal Fusion Transformer, ARIMA, XGBoost</strong>. Additionally, I developed a deep learning-based<strong>(RNN)</strong>  system for product search using image recognition with <strong>NearestNeighbor's bruteforce</strong> algorithm.</p>
-
-						<p>Prior to my current role, I served as an <strong>Intern (AI)</strong> at <a href="https://www.uxd.co.jp/"><strong>ULTRA-X BD LIMITED</strong></a>, where I served as the team leader for a group of 5 individuals. Our team was responsible for developing a "Speech to Text" conversion program using the <strong>Kaldi Automatic Speech Recognition (ASR) system</strong>.</p>
-
-						<p>In my previous role at <strong>SAir AIR BD LTD.</strong> (GSA of Himalaya Airlines) (<a href="http://www.sairbd.com"><strong>www.sairbd.com</strong></a>), I was responsible for conducting data analysis on airlines using <strong>Global Distribution Systems (GDS)</strong> and developing <strong>ERP systems</strong> for managing accounts, customer relations, and production materials. Additionally, I deployed a company website, including a visa processing unit using the <strong>Django framework</strong>, and built a fully functional <strong>online travel agency (OTA) system</strong> that allowed users to search for flight details using the Django framework, which included <strong>API integration</strong>.</p>
-
-						<p>With my extensive experience in software engineering and AI, I am confident in my ability to deliver successful projects and am excited to continue to grow and develop my skills in the field.</p>
-
-					</div>
-				
-					<!--<a href="./files/Md_Saiful_Islam_Resume.pdf" class="primary-btn white" data-text="Resume">-->
-					<a href="" class="primary-btn white" data-text="Resume">	
-						<span>R</span>
-						<span>e</span>
-						<span>s</span>
-						<span>u</span>
-						<span>m</span>
-						<span>e</span>
-					</a>
-			
-			</div>
-		</div>
-	</section>
-
-
-			<!-- Start Job History Area Area -->
-			<section class="job-area" id="experience">
-				<div class="container">
-					<div class="row d-flex">
-						<div class="col-lg-12 animate-box" data-animate-effect="fadeInLeft">
-							<div class="section-title">
-								<h2>Experience</h2>
-								<!--<p>If you are looking at blank cassettes on the web, you may be very confused at the difference in price. You may see
-									some for as low as $.17 each.</p>-->
-							</div>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-12">
-							<div class="timeline">
-			
-								<!-- Mass Holdings Company Limited - AI Engineer (Level -2) -->
-								<!-- Artificial Intelligence Engineer (Level -2) -->
-								<div class="timeline-entry">
-									<div class="timeline-icon">
-										<i class="icon-pen2"></i>
-									</div>
-									<div class="timeline-label">
-										<h4>Artificial Intelligence Engineer (Level -2)</h4>
-										<p class="timeline-date">Dec 2020 - Present</p>
-										<p class="timeline-company"><strong> Mass Holdings Company Limited, Tokyo, Japan</strong></p>
-										<p class="timeline-description">
-											As a Software Engineer (Artificial Intelligence) at Mass Holdings Company Limited, based in Tokyo, Japan, I successfully implemented an efficient sales forecasting system for our warehouse and created two innovative AI-based solutions. The first solution enables real-time hair color simulation, allowing users to preview different colors. The second solution utilizes deep learning for a product search feature based on uploaded images. These achievements highlight my expertise in using AI to solve complex problems and drive business growth. 
-											<br>Currently, developing an advanced Hair Style Generator program using generative AI technology (StyleGAN 2).
-										</p>
-										<p class="timeline-skills">
-											<strong>Skills:</strong> Machine Learning · Computer Vision · Deep Learning · Python · TensorFlow · PyTorch · Flask · FastAPI · AWS · Docker · K8s · MySQL · PostgreSQL · React.js · Angular
-										</p>
-									</div>
-								</div>
-								<hr class="timeline-separator">
-			
-								<!-- AI Intern -->
-								<div class="timeline-entry">
-									<div class="timeline-icon">
-										<i class="icon-pen2"></i>
-									</div>
-									<div class="timeline-label">
-										<h4>AI Intern</h4>
-										<p class="timeline-date">Sep 2020 - Nov 2020 · 3 mos</p>
-										<p class="timeline-company"><strong>ULTRA-X BD LIMITED, Remote</strong></p>
-										<p class="timeline-description">
-											At my first Japanese company, I served as the team leader for a group of 5 individuals. We were responsible for developing a "Speech to Text" conversion program using the Kaldi Automatic Speech Recognition (ASR) system.
-										</p>
-										<p class="timeline-skills">
-											<strong>Skills:</strong> Kaldi · Vosk · ASR
-										</p>
-									</div>
-								</div>
-								<hr class="timeline-separator">
-			
-								<!-- Trainee at B-JET -->
-								<div class="timeline-entry">
-									<div class="timeline-icon">
-										<i class="icon-pen2"></i>
-									</div>
-									<div class="timeline-label">
-										<h4>Trainee</h4>
-										<p class="timeline-date">Feb 2020 - Jul 2020 · 6 mos</p>
-										<p class="timeline-company"><strong>B-JET</strong>( <a href="https://www.jica.go.jp/bangladesh/bangland/b-jet.html">Bangladesh-Japan ICT Engineers' Training Program</a>)  , Dhaka, Bangladesh</p>
-
-										<p class="timeline-skills">
-											<strong>Skills:</strong> ITEE · Japanese Language Proficiency Test · Java
-										</p>
-									</div>
-								</div>
-								<hr class="timeline-separator">
-			
-								<!-- Software Engineer at SAIR AIR BD LTD -->
-								<div class="timeline-entry">
-									<div class="timeline-icon">
-										<i class="icon-pen2"></i>
-									</div>
-									<div class="timeline-label">
-										<h4>Software Engineer</h4>
-										<p class="timeline-date">Aug 2019 - Feb 2020 · 7 mos</p>
-										<p class="timeline-company"><strong>SAIR AIR BD LTD, Dhaka, Bangladesh</strong> </p>
-										<p class="timeline-description">
-											I was responsible for conducting data analysis on airlines using Global Distribution Systems (GDS) and developing ERP systems for managing accounts, customer relations, and production materials. Additionally, I deployed a company website, including a visa processing unit using the Django framework, and built a fully functional online travel agency (OTA) system that allowed users to search for flight details using the Django framework, which included API integration.
-										</p>
-										<p class="timeline-skills">
-											<strong>Skills:</strong> jQuery · MySQL · Django · PHP
-										</p>
-									</div>
-								</div>
-			
-								<!-- ... You can continue adding more job entries here ... -->
-			
-							</div>
-						</div>
-					</div>
-				</div>
-			</section>
-			
-
-
-	<!-- End About Area -->
-
-	<section class="job-area" id="education">
-		<div class="container" style="margin-top: 100px; margin-bottom: 100px;">
-			<div class="row d-flex">
-				<div class="col-lg-12 animate-box" data-animate-effect="fadeInLeft">
-					<div class="section-title">
-						<h2>Education</h2>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-12">
-					<div class="timeline-centered">
-						<!-- B.Sc. in Computer Science & Engineering -->
-						<article class="timeline-entry animate-box" data-animate-effect="fadeInLeft">
-							<div class="timeline-entry-inner">
-								<div class="timeline-icon color-1">
-									<i class="icon-pen2"></i>
-								</div>
-								<div class="timeline-label">
-									<h4>B.Sc. in Computer Science & Engineering</h4>
-									<h6 style="color:#9F9FA2">2015 - 2019</h6>
-									<p>Ahsanullah University of Science & Technology, Dhaka</p>
-								</div>
-							</div>
-						</article>
-						<hr class="timeline-separator">
-	
-						<!-- Higher Secondary Certificate (HSC) -->
-						<article class="timeline-entry animate-box" data-animate-effect="fadeInRight">
-							<div class="timeline-entry-inner" style="margin-top:20px;">
-								<div class="timeline-icon color-2">
-									<i class="icon-pen2"></i>
-								</div>
-								<div class="timeline-label">
-									<h4>Higher Secondary Certificate (HSC)</h4>
-									<h6 style="color:#9F9FA2">2012 - 2014</h6>
-									<p>National Ideal School & College, Dhaka</p>
-								</div>
-							</div>
-						</article>
-						<hr class="timeline-separator">
-	
-						<!-- Secondary School Certificate (SSC) -->
-						<article class="timeline-entry animate-box" data-animate-effect="fadeInLeft">
-							<div class="timeline-entry-inner" style="margin-top:20px;">
-								<div class="timeline-icon color-3">
-									<i class="icon-pen2"></i>
-								</div>
-								<div class="timeline-label">
-									<h4>Secondary School Certificate (SSC)</h4>
-									<h6 style="color:#9F9FA2">2001 - 2012</h6>
-									<p>National Ideal School & College, Dhaka</p>
-								</div>
-							</div>
-						</article>
-						<hr class="timeline-separator">
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-	
-	
-	<!--End education-->
-
-
-		<!--Start Freelancing-->
-	
-	<div style="margin-top:100px;">
-		<div class="container" id="publications">
-			<div class="row d-flex">
-				<div class="col-lg-12 animate-box" data-animate-effect="fadeInLeft">
-					<div class="section-title">
-						<h2>Publications</h2>
-
-					</div>
-				</div>
-			</div>
-
-			<div class="row">
-				<div class="col-lg animate-box">
-					<div class="single-job">
-						<div class="top-sec d-flex justify-content-between">
-							<div class="top-left">
-								<span><img style="max-width: 15px;" src="./img/benchmark.png"></span><span style="font-weight: bold;">Conference</span>
-								<h5 style="margin-top: 5px;">"Real Time Bangladeshi Sign Language Detection using Faster R-CNN”</h5>
-								<p>2018 International Conference on Innovation in Engineering and Technology (ICIET), Dhaka,Bangladesh.</p>
-
-								<p>Read details: <a href="https://ieeexplore.ieee.org/document/8660780">IEEE Xplore Link</a></p>
-							</div>
-							<!-- <div class="top-right">
-								<a href="#"><img class="mx-auto" src="img/brand/b4.png" alt=""></a>
-							</div> -->
-						</div>
-					</div>
-				</div>
-			</div>
-
-		<div class="row">
-				<div class="col-lg animate-box">
-					<div class="single-job">
-						<div class="top-sec d-flex justify-content-between">
-							<div class="top-left">
-								<span><img style="max-width: 15px;" src="./img/benchmark.png"></span><span style="font-weight: bold;">Workshop</span>
-								<h5 style="margin-top: 5px;">"BdSL36: A Dataset for Bangladeshi Sign Letters Recognition”</h5>
-								<p>The 15th Asian Conference on Computer Vision(ACCV), 2020, Kyoto, Japan.</p>
-
-								<p>Read details: <a href="https://link.springer.com/chapter/10.1007/978-3-030-69756-3_6">Springer Link</a></p>
-							</div>
-							<!-- <div class="top-right">
-								<a href="#"><img class="mx-auto" src="img/brand/b4.png" alt=""></a>
-							</div> -->
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<div class="row">
-				<div class="col-lg animate-box">
-					<div class="single-job">
-						<div class="top-sec d-flex justify-content-between">
-							<div class="top-left">
-								<span><img style="max-width: 15px;" src="./img/benchmark.png"></span><span style="font-weight: bold;">Chapter</span>
-								<h5 style="margin-top: 5px;">"Deep Learning Based Industrial Fault Diagnosis Using Induction Motor Bearing Signal”</h5>
-								<p>IGI Book project: Applied AI for Multimedia Technologies and CPS Applications.</p>
-
-								<p>Read details: <a href="https://scholar.google.com/scholar?oi=bibs&cluster=14902942165659984902&btnI=1&hl=en">IGI Link</a></p>
-							</div>
-							<!-- <div class="top-right">
-								<a href="#"><img class="mx-auto" src="img/brand/b4.png" alt=""></a>
-							</div> -->
-						</div>
-					</div>
-				</div>
-			</div>
-
-
-		</div>
-		
-	</div>
-	<!--End Freelancing-->
-	
-
-
-
-	<!-- Start Work Area Area -->
-	<section class="work-area section-gap-top section-gap-bottom-90" id="work">
-		<div class="container">
-			<div class="row d-flex justify-content-between align-items-end mb-80">
-				<div class="col-lg-6 animate-box" data-animate-effect="fadeInLeft">
-					<div class="section-title">
-						<h2>Works</h2>
-						<!--<p>If you are looking at blank cassettes on the web, you may be very confused at the difference in price. You may see
-							some for as low as $.17 each.</p>-->
-					</div>
-				</div>
-
-				<div class="col-lg-6">
-					<div class="filters">
-						<ul>
-							<li class="active" data-filter=".all">All Categories</li>
-							<li data-filter=".web">Web based</li>
-							<li data-filter=".data_science">Data Science (ML)</li>
-							<li data-filter=".android">Android</li>
-							<li data-filter=".offline">offline</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-
-			<div class="filters-content">
-				<div class="row grid">
-
-					<div class="single-work col-lg-4 col-md-6 col-sm-12 all data_science wow fadeInUp" data-wow-duration="1s">
-						<div class="relative">
-						  <div class="thumb">
-							<div class="overlay overlay-bg"></div>
-							<img class="image img-fluid" src="img/hair-generator-video-thumbnail.png" alt="Hair Style Generator Thumbnail">
-						  </div>
-						  <div class="middle">
-							<h4>Hair Style Generator</h4>
-						  </div>
-						  <a class="overlay" href="portfolio-details_hair_generator.html"></a>
-						  <div class="project-name-banner text-center">
-							<h5 style="font-size: 18px;">Hair Style Generator</h5>
-						  </div>
-						</div>
-					  </div>
-
-					
-					<div class="single-work col-lg-4 col-md-6 col-sm-12 all data_science wow fadeInUp" data-wow-duration="1s">
-						<div class="relative">
-						  <div class="thumb">
-							<div class="overlay overlay-bg"></div>
-							<img class="image img-fluid" src="img/hair-color-video-thumbnail.png" alt="Hair Color Simulation Thumbnail">
-						  </div>
-						  <div class="middle">
-							<h4>Hair Color Simulation</h4>
-						  </div>
-						  <a class="overlay" href="portfolio-details_hair_simulation.html"></a>
-						  <div class="project-name-banner text-center">
-							<h5 style="font-size: 18px;">Hair Color Simulation</h5>
-						  </div>
-						</div>
-					  </div>
-					  <div class="single-work col-lg-4 col-md-6 col-sm-12 all data_science wow fadeInUp" data-wow-duration="1s">
-						<div class="relative">
-						  <div class="thumb">
-							<div class="overlay overlay-bg"></div>
-							<img class="image img-fluid" src="img/demand-forecast-thumb.png" alt="Product Demand Forecast">
-						  </div>
-						  <div class="middle">
-							<h4>Product Demand Forecast</h4>
-						  </div>
-						  <a class="overlay" href="portfolio-details_demand_pred.html"></a>
-						  <div class="project-name-banner text-center">
-							<h5 style="font-size: 18px;">Product Demand Forecast</h5>
-						  </div>
-						</div>
-					  </div>
-					  <div class="single-work col-lg-4 col-md-6 col-sm-12 all data_science wow fadeInUp" data-wow-duration="1s">
-						<div class="relative">
-						  <div class="thumb">
-							<div class="overlay overlay-bg"></div>
-							<img class="image img-fluid" src="img/product-search-thumbnail.png" alt="Product Search by Image">
-						  </div>
-						  <div class="middle">
-							<h4>Product Search by Image</h4>
-						  </div>
-						  <a class="overlay" href="portfolio-details_product_search.html"></a>
-						  <div class="project-name-banner text-center">
-							<h5 style="font-size: 18px;">Product Search by Image</h5>
-						  </div>
-						</div>
-					  </div>
-					  <div class="single-work col-lg-4 col-md-6 col-sm-12 all data_science wow fadeInUp" data-wow-duration="1s">
-						<div class="relative">
-						  <div class="thumb">
-							<div class="overlay overlay-bg"></div>
-							<img class="image img-fluid" src="img/SignLanguage-thumbnail.png" alt="Product Search by Image">
-						  </div>
-						  <div class="middle">
-							<h4>Real-time Sign Language Detection</h4>
-						  </div>
-						  <a class="overlay" href="portfolio-details_sign_language.html"></a>
-						  <div class="project-name-banner text-center">
-							<h5 style="font-size: 18px;">Real-time Sign Language Detection</h5>
-						  </div>
-						</div>
-					  </div>
-
-					  <div class="single-work col-lg-4 col-md-6 col-sm-12 all data_science wow fadeInUp" data-wow-duration="1s">
-						<div class="relative">
-						  <div class="thumb">
-							<div class="overlay overlay-bg"></div>
-							<img class="image img-fluid" src="img/speech-to-text-thumbnail.png" alt="Product Search by Image">
-						  </div>
-						  <div class="middle">
-							<h4>Speech to Text (Editable) Conversion</h4>
-						  </div>
-						  <a class="overlay" href="portfolio-details_speech_to_text.html"></a>
-						  <div class="project-name-banner text-center">
-							<h5 style="font-size: 18px;">Speech to Text (Editable) Conversion</h5>
-						  </div>
-						</div>
-					  </div>
-
-					  <div class="single-work col-lg-4 col-md-6 col-sm-12 all data_science wow fadeInUp" data-wow-duration="1s">
-						<div class="relative">
-						  <div class="thumb">
-							<div class="overlay overlay-bg"></div>
-							<img class="image img-fluid" src="img/product-recom.png" alt="Product Search by Image">
-						  </div>
-						  <div class="middle">
-							<h4>AI based product recommendation (prototype)</h4>
-						  </div>
-						  <a class="overlay" href="portfolio-details_recommendation.html"></a>
-						  <div class="project-name-banner text-center">
-							<h5 style="font-size: 18px;"><h4>AI based product recommendation (prototype)</h4></h5>
-						  </div>
-						</div>
-					  </div>
-
-					  <div class="single-work col-lg-4 col-md-6 col-sm-12 all data_science wow fadeInUp" data-wow-duration="1s">
-						<div class="relative">
-						  <div class="thumb">
-							<div class="overlay overlay-bg"></div>
-							<img class="image img-fluid" src="img/attendence-thumbnail.png" alt="Product Search by Image">
-						  </div>
-						  <div class="middle">
-							<h4>Attendance System (Pretrained model)</h4>
-						  </div>
-						  <a class="overlay" href="portfolio-details_attendance.html"></a>
-						  <div class="project-name-banner text-center">
-							<h5 style="font-size: 18px;"><h4>Attendance System (Pretrained model)</h4></h5>
-						  </div>
-						</div>
-					  </div>
-
-					  <div class="single-work col-lg-4 col-md-6 col-sm-12 all web wow fadeInUp" data-wow-duration="1s">
-						<div class="relative">
-						  <div class="thumb">
-							<div class="overlay overlay-bg"></div>
-							<img class="image img-fluid" src="img/project/ota.jpg" alt="Product Search by Image">
-						  </div>
-						  <div class="middle">
-							<h4>Online Travel Agency | Web Development</h4>
-						  </div>
-						  <a class="overlay" href="portfolio-details_ota.html"></a>
-						  <div class="project-name-banner text-center">
-							<h5 style="font-size: 18px;"><h4>Online Travel Agency | Web Development</h4></h5>
-						  </div>
-						</div>
-					  </div>
-					
-					<div class="single-work col-lg-4 col-md-6 col-sm-12 all web wow fadeInUp" data-wow-duration="1s">
-						<div class="relative">
-							<div class="thumb">
-								<div class="overlay overlay-bg"></div>
-								<img class="image img-fluid" src="img/work/w9_main.png" alt="">
-							</div>
-							<div class="middle">
-								<h4>ERP development</h4>
-
-							</div>
-							<a class="overlay" href="portfolio-details_erp.html"></a>
-						</div>
-					</div>
-					<div class="single-work col-lg-4 col-md-6 col-sm-12 all offline wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s">
-						<div class="relative">
-							<div class="thumb">
-								<div class="overlay overlay-bg"></div>
-								<img class="image img-fluid" src="img/project/w1_main.png" alt="">
-							</div>
-							<div class="middle">
-								<h4>Distributed Database Management</h4>
-
-							</div>
-							<a class="overlay" href="portfolio-details_Al_bintum.html"></a>
-						</div>
-					</div>
-					<div class="single-work col-lg-4 col-md-6 col-sm-12 all web wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.2s">
-						<div class="relative">
-							<div class="thumb">
-								<div class="overlay overlay-bg"></div>
-								<img class="image img-fluid" src="img/work/w3_main.png" alt="">
-							</div>
-							<div class="middle">
-								<h4>Material Sharing</h4>
-							</div>
-							<a class="overlay" href="portfolio-details_TSCS.html"></a>
-						</div>
-					</div>
-					<div class="single-work col-lg-4 col-md-6 col-sm-12 all web wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.4s">
-						<div class="relative">
-							<div class="thumb">
-								<div class="overlay overlay-bg"></div>
-								<img class="image img-fluid" src="img/project/mad_main.png" alt="">
-							</div>
-							<div class="middle">
-								<h4>Mad <br>About Gadget</h4>
-
-							</div>
-							<a class="overlay" href="portfolio-details_mag.html"></a>
-						</div>
-					</div>
-					<div class="single-work col-lg-4 col-md-6 col-sm-12 all android wow fadeInUp" data-wow-duration="1s">
-						<div class="relative">
-							<div class="thumb">
-								<div class="overlay overlay-bg"></div>
-								<img class="image img-fluid" src="img/work/foodie_main.png" alt="">
-							</div>
-							<div class="middle">
-								<h4>Android App</h4>
-
-							</div>
-							<a class="overlay" href="portfolio-details_Foodie.html"></a>
-						</div>
-					</div>
-					<div class="single-work col-lg-4 col-md-6 col-sm-12 all web wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s">
-						<div class="relative">
-							<div class="thumb">
-								<div class="overlay overlay-bg"></div>
-								<img class="image img-fluid" src="img/work/aust_virus_main.png" alt="">
-							</div>
-							<div class="middle">
-								<h4>Web Browser</h4>
-
-							</div>
-							<a class="overlay" href="portfolio-details_Aust_Virus.html"></a>
-						</div>
-					</div>
-					<div class="single-work col-lg-4 col-md-6 col-sm-12 all offline wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s">
-						<div class="relative">
-							<div class="thumb">
-								<div class="overlay overlay-bg"></div>
-								<img class="image img-fluid" src="img/project/cte_main.png" alt="">
-							</div>
-							<div class="middle">
-								<h4>Arcade Game</h4>
-
-							</div>
-							<a class="overlay" href="portfolio-details_catch_the_egg.html"></a>
-						</div>
-					</div>
-					<div class="single-work col-lg-4 col-md-6 col-sm-12 all android wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.1s">
-						<div class="relative">
-							<div class="thumb">
-								<div class="overlay overlay-bg"></div>
-								<img class="image img-fluid" src="img/project/sr_main.png" alt="">
-							</div>
-							<div class="middle">
-								<h4>OCR</h4>
-
-							</div>
-							<a class="overlay" href="portfolio-details_sr.html"></a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-	<!-- End Work Area Area -->
-
-
-<!-- Start Service Area -->
-<section class="service-area section-gap">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-6 animate-box" data-animate-effect="fadeInLeft">
-                <div class="section-title">
-                    <h2>Enthusiastic Areas</h2>
-                </div>
-            </div>
+        <div class="hero-stats">
+          <div class="stat">
+            <div class="stat-num">5+</div>
+            <div class="stat-label">Years Experience</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">10+</div>
+            <div class="stat-label">AI Projects Shipped</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">3</div>
+            <div class="stat-label">Publications</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">&lt;200ms</div>
+            <div class="stat-label">P95 Latency</div>
+          </div>
         </div>
-        <div class="row">
-            <div class="col-lg-3 col-md-6">
-                <div class="single-service wow fadeInUp" style="padding:33px; height: 100%;" data-wow-duration="1s" data-wow-delay="0.2s">
-                    <span class="lnr lnr-chart-bars"></span>
-                    <h4 class="service-title"><p>Deep Learning Architectures</p>  
-                    </h4>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="single-service wow fadeInUp" style="padding:33px; height: 100%;" data-wow-duration="1s" data-wow-delay="0.2s">
-                    <span class="lnr lnr-chart-bars"></span>
-                    <h4 class="service-title"><p>Object Detection and Tracking</p>  
-                    </h4>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="single-service wow fadeInUp" style="height: 100%;" data-wow-duration="1s" data-wow-delay="0.4s">
-                    <span class="lnr lnr-screen"></span>
-                    <h4 class="service-title"><span>Semantic Segmentation and Instance Segmentation</span>
-                    </h4>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="single-service wow fadeInUp" style="height: 100%;" data-wow-duration="1s" data-wow-delay="0.6s">
-                    <span class="lnr lnr-layers"></span>
-                    <h4 class="service-title"><span>Generative Models for Image Synthesis</span>
-                    </h4>
-                </div>
-            </div>
+
+        <div class="hero-actions">
+          <a href="mailto:saiful.somum@gmail.com" class="btn-primary">
+            <i class="fas fa-paper-plane"></i> Get in Touch
+          </a>
+          <a href="https://linkedin.com/in/somum" target="_blank" class="btn-outline">
+            <i class="fab fa-linkedin"></i> LinkedIn
+          </a>
+          <a href="https://github.com/somum" target="_blank" class="btn-outline">
+            <i class="fab fa-github"></i> GitHub
+          </a>
         </div>
+
+        <div class="hero-social">
+          <a href="https://scholar.google.com/citations?hl=en&user=fwoac0YAAAAJ" target="_blank" title="Google Scholar">
+            <i class="fas fa-graduation-cap"></i>
+          </a>
+          <a href="https://medium.com/@saiful.somum" target="_blank" title="Medium">
+            <i class="fab fa-medium"></i>
+          </a>
+          <a href="https://twitter.com/saiful_somum" target="_blank" title="Twitter/X">
+            <i class="fab fa-x-twitter"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-avatar">
+        <div class="hero-avatar-ring"></div>
+        <img src="img/10.saiful.jpg" alt="MD Saiful Islam" onerror="this.style.display='none'">
+      </div>
     </div>
+  </div>
 </section>
-<!-- End Service Area -->>
-
-<!-- Start Testimonials Area -->
-	<section class="testimonials_area section-gap" id="skills">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-6 animate-box" data-animate-effect="fadeInLeft">
-					<div class="section-title">
-						<h2>Skills</h2>
-						<!--<p>If you are looking at blank cassettes on the web, you may be very confused at the difference in price. You may see
-							some for as low as $.17 each.</p>-->
-					</div>
-				</div>
-			</div>
-			<div class="testi_slider owl-carousel" style="">
-				<div class="item">
-					<div class="testi_item">
-						<!--<img src="img/quote.png" alt="">-->
-						<h4>Programming Languages</h4>
-						<!-- <ul class="list">
-							<li><a href="#"><i class="fa fa-star"></i></a></li>
-							<li><a href="#"><i class="fa fa-star"></i></a></li>
-							<li><a href="#"><i class="fa fa-star"></i></a></li>
-							<li><a href="#"><i class="fa fa-star"></i></a></li>
-							<li><a href="#"><i class="fa fa-star"></i></a></li>
-						</ul> -->
-						<div class="wow fadeIn" data-wow-duration="1s">
-							<p>
-								Python <b>|</b> C++ <b>|</b> Java <b>|</b> JavaScript <b>|</b> MATLAB
-							</p>
-						</div>
-					</div>
-				</div>
-				<div class="item">
-					<div class="testi_item">
-						<!--<img src="img/quote.png" alt="">-->
-						<h4>Framework & Library</h4>
-					<!-- 	<ul class="list">
-							<li><a href="#"><i class="fa fa-star"></i></a></li>
-							<li><a href="#"><i class="fa fa-star"></i></a></li>
-							<li><a href="#"><i class="fa fa-star"></i></a></li>
-							<li><a href="#"><i class="fa fa-star"></i></a></li>
-							<li><span class="fa fa-star"></span></li>
-		
-						</ul> -->
-						<div class="wow fadeIn" data-wow-duration="1s">
-							<p>
-								Flask <b>|</b> Tensorflow <b>|</b> Keras <b>|</b> OpenCV <b>|</b> Pytorch <b>|</b> Angular <b>|</b> React <b>|</b> ASP.NET MVC <b>|</b> NumPy <b>|</b> Pandas <b>|</b> Matplotlib <b>|</b> Scikit-learn
-							</p>
-						</div>
-					</div>
-				</div>
-				<div class="item">
-					<div class="testi_item">
-						<!--<img src="img/quote.png" alt="">-->
-						<h4>Database</h4>
-						<!-- <ul class="list">
-							<li><a href="#"><i class="fa fa-star"></i></a></li>
-							<li><a href="#"><i class="fa fa-star"></i></a></li>
-							<li><a href="#"><i class="fa fa-star"></i></a></li>
-							<li><a href="#"><i class="fa fa-star"></i></a></li>
-							<li><a href="#"><i class="fa fa-star"></i></a></li>
-						</ul> -->
-						<div class="wow fadeIn" data-wow-duration="1s">
-							<p>
-								MySQL <b>|</b> PostgreSQL <b>|</b> SQL <b>|</b> Oracle PL/SQL <b>|</b> Mongodb
-							</p>
-						</div>
-					</div>
-				</div>
-
-<!-- 				<div class="item">
-					<div class="testi_item">
-						
-						<h4>IDE</h4>
-						<ul class="list">
-							<li><a href="#"><i class="fa fa-star"></i></a></li>
-							<li><a href="#"><i class="fa fa-star"></i></a></li>
-							<li><a href="#"><i class="fa fa-star"></i></a></li>
-							<li><a href="#"><i class="fa fa-star"></i></a></li>
-							<li><a href="#"><i class="fa fa-star"></i></a></li>
-						</ul>
-						<div class="wow fadeIn" data-wow-duration="1s">
-							<p>
-								Anaconda <b>|</b> Visual Studio Code <b>|</b> PyCharm <b>|</b> Android Studio <b>|</b>
-NetBeans <b>|</b> Proteus <b>|</b> Arduino
-							</p>
-						</div>
-					</div>
-				</div> -->
-				<div class="item">
-					<div class="testi_item">
-						<!--<img src="img/quote.png" alt="">-->
-						<h4>DevOps <b>|</b> Deployments <b>|</b> Version Control </h4>
-						<!-- <ul class="list">
-							<li><a href="#"><i class="fa fa-star"></i></a></li>
-							<li><a href="#"><i class="fa fa-star"></i></a></li>
-							<li><a href="#"><i class="fa fa-star"></i></a></li>
-							<li><a href="#"><i class="fa fa-star"></i></a></li>
-							<li><a href="#"><i class="fa fa-star"></i></a></li>
-						</ul> -->
-						<div class="wow fadeIn" data-wow-duration="1s">
-							<p>
-								AWS(EC2, S3, RDS, sagemaker) <b>|</b> K8s <b>|</b> Docker <b>|</b> Git (CI/CD) <b>|</b> uWSGI <b>|</b> Nginx
-							</p>
-						</div>
-					</div>
-				</div>
-				
-
-			</div>
-		</div>
-	</section>
-	<!-- End Testimonials Area -->
 
 
-	<!-- Start Contact Area -->
-	<section class="contact-area section-gap">
-		<div class="container ">
-			<div class="row">
-				<div class="col-lg-12 animate-box" data-animate-effect="fadeInLeft">
-					<div class="contact-title">
-						<h2>Contact Me</h2>
-						<!--<p>If you are looking at blank cassettes on the web, you may be very confused at the difference in price. You may see
-							some for as low as $.17 each.</p>-->
-					</div>
-				</div>
-			</div>
+<!-- ── ABOUT ── -->
+<section id="about">
+  <div class="container">
+    <div class="section-label">About Me</div>
+    <h2 class="section-title">Building AI that ships to production</h2>
 
-			<div class="row mt-80">
-				<div class="col-lg-4 col-md-4 animate-box" data-animate-effect="fadeInLeft">
-					<div class="contact-box">
-						<h4>+81 070 9020 1850</h4>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-4 animate-box" data-animate-effect="fadeInLeft">
-					<div class="contact-box">
-						<h4>saiful.somum@gmail.com</h4>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-4 animate-box" data-animate-effect="fadeInLeft">
-					<div class="contact-box">
-						<h4>somum.github.io/somum/</h4>
-					</div>
-				</div>
-			</div>
+    <div class="about-grid fade-up">
+      <div class="about-text">
+        <p>
+          I'm a Senior AI Engineer based in Tokyo, Japan, specializing in the full stack of modern AI — from model research and fine-tuning to scalable inference systems and cloud-native deployment. My work bridges deep learning research and production engineering, ensuring AI solutions are not just accurate but fast, reliable, and maintainable at scale.
+        </p>
+        <p>
+          At MASS Holdings Corporation I lead a team of 5 engineers, architecting enterprise LLM platforms including the KikuChat RAG system — serving 100+ concurrent users at sub-200ms P95 latency using vLLM, Qdrant, and Kubernetes. I have shipped AI solutions across generative AI, computer vision, NLP, and time-series forecasting for clients including Rakuten and L'Oréal.
+        </p>
+        <p>
+          I hold 3 peer-reviewed publications at IEEE, ACCV, and IGI Global. I'm fluent in English and Bengali, and hold a <strong style="color:var(--text)"><a href="https://www.j-cat2.org" target="_blank" style="color:var(--text);text-decoration:underline;text-decoration-color:rgba(255,255,255,0.2)">J-CAT N4</a></strong> (Japanese Computerized Adaptive Test) certificate — self-studied further to N3, and through daily work inside a fully Japanese-language corporate environment I operate comfortably at an N3–N2 level in both spoken and written business communication.
+        </p>
+      </div>
 
-			<div class="row">
-				<div class="col-lg-12 text-center animate-box" data-animate-effect="fadeInLeft">
-					<a href="contact.html" class="primary-btn mt-50" data-text="Hire Me">
-						<span>H</span>
-						<span>i</span>
-						<span>r</span>
-						<span>e</span>
-						<span> </span>
-						<span>M</span>
-						<span>e</span>
-					</a>
-				</div>
-			</div>
-		</div>
-	</section>
-	<!-- End Contact Area -->
+      <div class="about-highlights">
+        <div class="highlight-item">
+          <div class="highlight-icon"><i class="fas fa-brain" style="color:#fff"></i></div>
+          <div class="highlight-text">
+            <strong>LLM & GenAI Systems</strong>
+            <span>RAG, vLLM, LoRA fine-tuning, vector search</span>
+          </div>
+        </div>
+        <div class="highlight-item">
+          <div class="highlight-icon"><i class="fas fa-eye" style="color:#fff"></i></div>
+          <div class="highlight-text">
+            <strong>Computer Vision</strong>
+            <span>Detection, segmentation, GANs, CUDA optimization</span>
+          </div>
+        </div>
+        <div class="highlight-item">
+          <div class="highlight-icon"><i class="fas fa-server" style="color:#fff"></i></div>
+          <div class="highlight-text">
+            <strong>MLOps & Platform</strong>
+            <span>Kubernetes, Docker, CI/CD, AWS, model serving</span>
+          </div>
+        </div>
+        <div class="highlight-item">
+          <div class="highlight-icon"><i class="fas fa-users" style="color:#fff"></i></div>
+          <div class="highlight-text">
+            <strong>Team Lead</strong>
+            <span>5-engineer team, Agile, cross-functional delivery</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 
-	<!-- start footer Area -->
-	<footer class="footer-area">
-		<div class="container">
-			<div class="row justify-content-center">
-				<div class="col-lg-12">
-					<div class="footer-top flex-column">
-						<div class="footer-logo">
-							<a href="#">
-								<img src="img/logo.png" alt="">
-							</a>
-							<h4>Follow Me</h4>
-						</div>
-						<div class="footer-social">
-							<a href="https://www.linkedin.com/in/somum/"><i class="fa fa-linkedin"></i></a>
-							<a href="https://github.com/somum"><i class="fa fa-github"></i></a>
-							<a href="https://twitter.com/saiful_somum"><i class="fa fa-twitter"></i></a>
-							<a href="https://www.facebook.com/m.somum/"><i class="fa fa-facebook"></i></a>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="row footer-bottom justify-content-center">
-				<p class="col-lg-8 col-sm-12 footer-text">
-					<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
-			</div>
-		</div>
-	</footer>
-	<!-- End footer Area -->
+<!-- ── EXPERIENCE ── -->
+<section id="experience">
+  <div class="container">
+    <div class="section-label">Work History</div>
+    <h2 class="section-title">Professional Experience</h2>
 
-	<!-- ####################### Start Scroll to Top Area ####################### -->
-	<div id="back-top">
-		<a title="Go to Top" href="#">
-			<i class="lnr lnr-arrow-up"></i>
-		</a>
-	</div>
-	<!-- ####################### End Scroll to Top Area ####################### -->
+    <div class="timeline fade-up">
 
-	<script src="js/vendor/jquery-2.2.4.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-	 crossorigin="anonymous"></script>
-	<script src="js/vendor/bootstrap.min.js"></script>
-	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
-	<script src="js/easing.min.js"></script>
-	<script src="js/hoverIntent.js"></script>
-	<script src="js/superfish.min.js"></script>
-	<script src="js/mn-accordion.js"></script>
-	<script src="js/jquery.ajaxchimp.min.js"></script>
-	<script src="js/jquery.magnific-popup.min.js"></script>
-	<script src="js/owl.carousel.min.js"></script>
-	<script src="js/jquery.nice-select.min.js"></script>
-	<script src="js/isotope.pkgd.min.js"></script>
-	<script src="js/jquery.circlechart.js"></script>
-	<script src="js/mail-script.js"></script>
-	<script src="js/wow.min.js"></script>
-	<script src="js/main.js"></script>
-	<script src="C:/Users/User/Desktop/web/v1/jackson/js/jquery.waypoints.min.js"></script>
-	<script src="C:/Users/User/Desktop/web/v1/jackson/js/jquery.countTo.js"></script>
-	<script src="C:/Users/User/Desktop/web/v1/jackson/js/main.js"></script>
+      <!-- MASS Holdings -->
+      <div class="timeline-item">
+        <div class="timeline-meta">
+          <span class="timeline-date">May 2020 — Present</span>
+          <span class="timeline-company"><i class="fas fa-map-marker-alt" style="font-size:0.7rem;color:var(--muted)"></i> Tokyo, Japan</span>
+        </div>
+        <div class="timeline-title">AI Engineer (Level 2) — Team Lead</div>
+        <div class="timeline-subtitle">MASS Holdings Corporation</div>
+
+        <div class="project-cards">
+
+          <div class="project-card">
+            <div class="project-card-title">
+              <i class="fas fa-comments" style="color:var(--accent);font-size:0.8rem"></i>
+              KikuChat — Enterprise AI Chatbot (2025–Present)
+            </div>
+            <div class="project-card-desc">
+              Architected and deployed a production-grade RAG conversational AI platform using OpenGPT-compatible APIs with Qwen models served via vLLM. Designed an advanced retrieval pipeline with Qdrant vector DB, semantic embedding search, and cross-encoder re-ranking. Built scalable FastAPI backend with PostgreSQL for auth, session management, and chat history.
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:0.4rem;margin-bottom:0.6rem">
+              <span class="metric-tag">↑40% FAQ accuracy</span>
+              <span class="metric-tag">100+ concurrent users</span>
+              <span class="metric-tag">&lt;200ms P95 latency</span>
+            </div>
+            <div class="tech-stack">
+              <span class="tech-tag">Python</span><span class="tech-tag">FastAPI</span><span class="tech-tag">vLLM</span><span class="tech-tag">Qwen</span><span class="tech-tag">Qdrant</span><span class="tech-tag">LangChain</span><span class="tech-tag">PostgreSQL</span><span class="tech-tag">Kubernetes</span><span class="tech-tag">Docker</span>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-card-title">
+              <i class="fas fa-cut" style="color:var(--accent2);font-size:0.8rem"></i>
+              AI Hair Style Recommendation System (2023–2025)
+            </div>
+            <div class="project-card-desc">
+              Led end-to-end development combining StyleGAN2 and HairFIT for realistic hair visualization. Built personalized recommendation engine using ELYZA LLM with FAISS for image + text-based user preferences. Integrated RAG chatbot for natural language customer support.
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:0.4rem;margin-bottom:0.6rem">
+              <span class="metric-tag">↑30% GPU inference speed</span>
+            </div>
+            <div class="tech-stack">
+              <span class="tech-tag">PyTorch</span><span class="tech-tag">StyleGAN2</span><span class="tech-tag">ELYZA LLM</span><span class="tech-tag">FAISS</span><span class="tech-tag">Angular</span><span class="tech-tag">FastAPI</span><span class="tech-tag">MLFlow</span><span class="tech-tag">CUDA</span>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-card-title">
+              <i class="fas fa-chart-line" style="color:var(--accent3);font-size:0.8rem"></i>
+              Product Demand Forecasting (2022–2023)
+            </div>
+            <div class="project-card-desc">
+              Led ML forecasting system for supply chain optimization serving Rakuten and L'Oréal. Evaluated FBProphet, ARIMA, XGBoost, Temporal Fusion Transformer, and N-BEATS. Deployed production system with FastAPI enabling real-time predictions.
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:0.4rem;margin-bottom:0.6rem">
+              <span class="metric-tag">↓25% inventory costs</span>
+            </div>
+            <div class="tech-stack">
+              <span class="tech-tag">FBProphet</span><span class="tech-tag">XGBoost</span><span class="tech-tag">TensorFlow</span><span class="tech-tag">N-BEATS</span><span class="tech-tag">TFT</span><span class="tech-tag">FastAPI</span><span class="tech-tag">Kubernetes</span>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-card-title">
+              <i class="fas fa-search" style="color:var(--green);font-size:0.8rem"></i>
+              Image-Based Product Search Engine (2022)
+            </div>
+            <div class="project-card-desc">
+              Reverse image search system (93% accuracy) using VGG19 with multi-modal search combining ResNet50, DenseNet121, and Keras-OCR. Built scalable API handling 10+ years of product data.
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:0.4rem;margin-bottom:0.6rem">
+              <span class="metric-tag">93% accuracy</span>
+              <span class="metric-tag">&lt;100ms search latency</span>
+            </div>
+            <div class="tech-stack">
+              <span class="tech-tag">TensorFlow</span><span class="tech-tag">VGG19</span><span class="tech-tag">ResNet50</span><span class="tech-tag">Keras-OCR</span><span class="tech-tag">React</span><span class="tech-tag">SQLite</span><span class="tech-tag">Nginx</span>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-card-title">
+              <i class="fas fa-palette" style="color:#f59e0b;font-size:0.8rem"></i>
+              Real-Time Hair Color Simulation (2021–2022)
+            </div>
+            <div class="project-card-desc">
+              Hair segmentation with U-Net + MobileNetV3 transfer learning, trained on 26,918 images using Dice loss. HSL color transformation for natural hair color adjustment supporting gradient and multi-color effects.
+            </div>
+            <div class="tech-stack">
+              <span class="tech-tag">TensorFlow</span><span class="tech-tag">U-Net</span><span class="tech-tag">MobileNetV3</span><span class="tech-tag">Angular</span><span class="tech-tag">Docker</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- UltraX Intern -->
+      <div class="timeline-item">
+        <div class="timeline-meta">
+          <span class="timeline-date">Sep 2020 — Nov 2020</span>
+          <span class="timeline-company"><i class="fas fa-map-marker-alt" style="font-size:0.7rem;color:var(--muted)"></i> Remote</span>
+        </div>
+        <div class="timeline-title">AI Engineering Intern</div>
+        <div class="timeline-subtitle">UltraX Corporation</div>
+        <div class="project-cards">
+          <div class="project-card">
+            <div class="project-card-title">Automatic Speech Recognition System</div>
+            <div class="project-card-desc">Led a 5-engineer team building an ASR system using VOSK and Kaldi. Built PyQt5 desktop app with video recording, real-time transcription, and editable output.</div>
+            <div class="tech-stack"><span class="tech-tag">Python</span><span class="tech-tag">VOSK</span><span class="tech-tag">Kaldi</span><span class="tech-tag">PyQt5</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SAir -->
+      <div class="timeline-item">
+        <div class="timeline-meta">
+          <span class="timeline-date">Aug 2019 — Feb 2020</span>
+          <span class="timeline-company"><i class="fas fa-map-marker-alt" style="font-size:0.7rem;color:var(--muted)"></i> Dhaka, Bangladesh</span>
+        </div>
+        <div class="timeline-title">Software Engineer (Python Backend)</div>
+        <div class="timeline-subtitle">SAir BD Limited</div>
+        <div class="project-cards">
+          <div class="project-card">
+            <div class="project-card-title">Travel Agency ERP System</div>
+            <div class="project-card-desc">Full-stack ERP for airline customer management, accounting, and booking. CRM with visa application processing and real-time status tracking via Django.</div>
+            <div class="tech-stack"><span class="tech-tag">Python</span><span class="tech-tag">Django</span><span class="tech-tag">PostgreSQL</span><span class="tech-tag">JavaScript</span><span class="tech-tag">Bootstrap</span></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ── SKILLS ── -->
+<section id="skills">
+  <div class="container">
+    <div class="section-label">Technical Stack</div>
+    <h2 class="section-title">Core Competencies</h2>
+
+    <div class="skills-grid fade-up">
+
+      <div class="card skill-category">
+        <h3><i class="fas fa-brain"></i> Generative AI &amp; LLMs</h3>
+        <div class="skill-pills">
+          <span class="pill featured">vLLM</span>
+          <span class="pill featured">RAG</span>
+          <span class="pill featured">Qwen</span>
+          <span class="pill featured">LLaMA</span>
+          <span class="pill featured">ELYZA</span>
+          <span class="pill">GPT-OSS</span>
+          <span class="pill">LoRA / QLoRA</span>
+          <span class="pill">Qdrant</span>
+          <span class="pill">FAISS</span>
+          <span class="pill">LangChain</span>
+          <span class="pill">Hugging Face</span>
+          <span class="pill">Prompt Engineering</span>
+          <span class="pill">Re-ranking</span>
+          <span class="pill">OpenAI-Compatible API</span>
+        </div>
+      </div>
+
+      <div class="card skill-category">
+        <h3><i class="fas fa-eye"></i> Deep Learning &amp; Computer Vision</h3>
+        <div class="skill-pills">
+          <span class="pill featured">PyTorch</span>
+          <span class="pill featured">TensorFlow</span>
+          <span class="pill">Keras</span>
+          <span class="pill">Object Detection</span>
+          <span class="pill">Segmentation</span>
+          <span class="pill">GAN / StyleGAN2</span>
+          <span class="pill">ONNX</span>
+          <span class="pill">CUDA Optimization</span>
+          <span class="pill">Quantization</span>
+          <span class="pill">Transfer Learning</span>
+          <span class="pill">Time-Series (TFT, N-BEATS)</span>
+        </div>
+      </div>
+
+      <div class="card skill-category">
+        <h3><i class="fas fa-code"></i> Backend &amp; APIs</h3>
+        <div class="skill-pills">
+          <span class="pill featured">Python (Expert)</span>
+          <span class="pill featured">FastAPI</span>
+          <span class="pill">C++</span>
+          <span class="pill">TypeScript</span>
+          <span class="pill">RESTful APIs</span>
+          <span class="pill">Microservices</span>
+          <span class="pill">High-Concurrency</span>
+          <span class="pill">Django</span>
+          <span class="pill">Flask</span>
+          <span class="pill">ONNX Runtime</span>
+        </div>
+      </div>
+
+      <div class="card skill-category">
+        <h3><i class="fas fa-cloud"></i> Cloud &amp; MLOps</h3>
+        <div class="skill-pills">
+          <span class="pill featured">Kubernetes</span>
+          <span class="pill featured">Docker</span>
+          <span class="pill featured">AWS (EC2, S3, EKS)</span>
+          <span class="pill">GCP</span>
+          <span class="pill">ArgoCD</span>
+          <span class="pill">Jenkins</span>
+          <span class="pill">GitLab CI/CD</span>
+          <span class="pill">MLFlow</span>
+          <span class="pill">GPU Management</span>
+          <span class="pill">Model Monitoring</span>
+        </div>
+      </div>
+
+      <div class="card skill-category">
+        <h3><i class="fas fa-database"></i> Data &amp; Storage</h3>
+        <div class="skill-pills">
+          <span class="pill">PostgreSQL</span>
+          <span class="pill">MySQL</span>
+          <span class="pill">MongoDB</span>
+          <span class="pill">SQLite</span>
+          <span class="pill">Vector Databases</span>
+          <span class="pill">NumPy</span>
+          <span class="pill">Pandas</span>
+          <span class="pill">Scikit-learn</span>
+          <span class="pill">ETL Pipelines</span>
+        </div>
+      </div>
+
+      <div class="card skill-category">
+        <h3><i class="fas fa-layer-group"></i> Leadership &amp; Process</h3>
+        <div class="skill-pills">
+          <span class="pill">Team Lead (5 engineers)</span>
+          <span class="pill">Agile / Scrum</span>
+          <span class="pill">Code Review</span>
+          <span class="pill">Project Planning</span>
+          <span class="pill">Cross-cultural Collab</span>
+          <span class="pill">Technical Documentation</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ── PUBLICATIONS ── -->
+<section id="publications">
+  <div class="container">
+    <div class="section-label">Research</div>
+    <h2 class="section-title">Publications</h2>
+
+    <div class="pub-list fade-up">
+
+      <div class="pub-card">
+        <span class="pub-type conf">IEEE Conf.</span>
+        <div class="pub-info">
+          <h4>Real-time Bangla Sign Language Detection using Faster R-CNN</h4>
+          <p>IEEE International Conference on Innovation in Engineering and Technology (ICIET), 2018 · Dhaka, Bangladesh</p>
+          <a href="https://ieeexplore.ieee.org/document/8660780" target="_blank" class="pub-link">
+            <i class="fas fa-external-link-alt"></i> IEEE Xplore
+          </a>
+        </div>
+      </div>
+
+      <div class="pub-card">
+        <span class="pub-type workshop">ACCV Workshop</span>
+        <div class="pub-info">
+          <h4>BdSL36: A Dataset for Bangla Sign Language Alphabet Recognition</h4>
+          <p>15th Asian Conference on Computer Vision (ACCV), 2020 · Kyoto, Japan · Springer</p>
+          <a href="https://link.springer.com/chapter/10.1007/978-3-030-69756-3_6" target="_blank" class="pub-link">
+            <i class="fas fa-external-link-alt"></i> Springer Link
+          </a>
+        </div>
+      </div>
+
+      <div class="pub-card">
+        <span class="pub-type chapter">Book Chapter</span>
+        <div class="pub-info">
+          <h4>Deep Learning-Based Industrial Fault Diagnosis using Induction Motor Bearing Signals</h4>
+          <p>Applications of AI in Multimedia Technology and CPS · IGI Global</p>
+          <a href="https://scholar.google.com/scholar?oi=bibs&cluster=14902942165659984902&btnI=1&hl=en" target="_blank" class="pub-link">
+            <i class="fas fa-external-link-alt"></i> IGI Global
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ── KEY ACHIEVEMENTS ── -->
+<section id="achievements">
+  <div class="container">
+    <div class="section-label">Impact</div>
+    <h2 class="section-title">Key Achievements</h2>
+
+    <div class="achievements-grid fade-up">
+      <div class="achievement-card">
+        <div class="achievement-icon">🚀</div>
+        <div>
+          <h4>5+ AI Projects Delivered</h4>
+          <p>100% on-time delivery from conception to production, managing cross-functional teams of up to 5 engineers.</p>
+        </div>
+      </div>
+      <div class="achievement-card">
+        <div class="achievement-icon">⚡</div>
+        <div>
+          <h4>Sub-200ms P95 Latency</h4>
+          <p>Optimized LLM inference using vLLM continuous batching, async I/O, and retrieval optimization at scale.</p>
+        </div>
+      </div>
+      <div class="achievement-card">
+        <div class="achievement-icon">📈</div>
+        <div>
+          <h4>30% GPU Inference Speedup</h4>
+          <p>CUDA optimization, model quantization, and ONNX conversion for production deep learning deployment.</p>
+        </div>
+      </div>
+      <div class="achievement-card">
+        <div class="achievement-icon">🎯</div>
+        <div>
+          <h4>40% FAQ Accuracy Boost</h4>
+          <p>Improved domain-specific chatbot accuracy via chunking strategies, re-ranking, and prompt tuning.</p>
+        </div>
+      </div>
+      <div class="achievement-card">
+        <div class="achievement-icon">📦</div>
+        <div>
+          <h4>25% Inventory Cost Reduction</h4>
+          <p>Accurate demand forecasting for Rakuten and L'Oréal supply chains using ensemble ML models.</p>
+        </div>
+      </div>
+      <div class="achievement-card">
+        <div class="achievement-icon">📝</div>
+        <div>
+          <h4>3 Peer-Reviewed Publications</h4>
+          <p>Published at IEEE, ACCV (Springer), and IGI Global in computer vision and deep learning.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ── EDUCATION ── -->
+<section id="education">
+  <div class="container">
+    <div class="section-label">Education &amp; Training</div>
+    <h2 class="section-title">Academic Background</h2>
+
+    <div class="edu-grid fade-up">
+
+      <div class="edu-card">
+        <div class="edu-year">2015 — 2019</div>
+        <div class="edu-degree">B.Sc. Computer Science &amp; Engineering</div>
+        <div class="edu-school">Ahsanullah University of Science &amp; Technology · Dhaka, Bangladesh</div>
+        <p style="font-size:0.8rem;color:var(--subtle);margin-top:0.8rem;">Specialized in AI, Machine Learning &amp; Computer Vision. Senior thesis: real-time sign language detection using deep learning.</p>
+      </div>
+
+      <div class="edu-card">
+        <div class="edu-year">Mar 2020 — Jul 2020</div>
+        <div class="edu-degree">Japanese Language &amp; Business Culture</div>
+        <div class="edu-school">JICA — B-JET Program · Japan</div>
+        <p style="font-size:0.8rem;color:var(--subtle);margin-top:0.8rem;">Intensive training in Japanese language proficiency (N3-N2), business communication, and cross-cultural collaboration.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ── CONTACT ── -->
+<section id="contact">
+  <div class="container">
+    <div class="section-label">Get In Touch</div>
+    <h2 class="section-title">Let's Work Together</h2>
+
+    <div class="contact-grid fade-up">
+      <div class="contact-info">
+        <h3>Open to new opportunities</h3>
+        <p>
+          I'm interested in senior AI engineering roles, technical leadership positions, and exciting AI research collaborations. Whether you're building the next generation of LLM infrastructure or tackling novel computer vision challenges — let's talk.
+        </p>
+
+        <div class="contact-items">
+          <div class="contact-item">
+            <div class="contact-item-icon"><i class="fas fa-envelope"></i></div>
+            <div class="contact-item-text">
+              <span>Email</span>
+              <a href="mailto:saiful.somum@gmail.com">saiful.somum@gmail.com</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon"><i class="fas fa-phone"></i></div>
+            <div class="contact-item-text">
+              <span>Phone</span>
+              <strong>+81 70-9020-1850</strong>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon"><i class="fas fa-map-marker-alt"></i></div>
+            <div class="contact-item-text">
+              <span>Location</span>
+              <strong>Tokyo, Japan</strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-socials">
+          <a href="https://linkedin.com/in/somum" target="_blank" class="social-btn">
+            <i class="fab fa-linkedin"></i> LinkedIn
+          </a>
+          <a href="https://github.com/somum" target="_blank" class="social-btn">
+            <i class="fab fa-github"></i> GitHub
+          </a>
+          <a href="https://scholar.google.com/citations?hl=en&user=fwoac0YAAAAJ" target="_blank" class="social-btn">
+            <i class="fas fa-graduation-cap"></i> Scholar
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <div class="card" style="margin-bottom:1.5rem;">
+          <h4 style="font-family:'Space Grotesk',sans-serif;font-size:0.95rem;margin-bottom:1.2rem;color:var(--text)">Certifications</h4>
+          <div style="display:flex;align-items:center;gap:1rem;padding:0.8rem;background:rgba(255,255,255,0.03);border-radius:8px;margin-bottom:0.6rem">
+            <div style="width:36px;height:36px;background:rgba(99,102,241,0.15);border-radius:8px;display:flex;align-items:center;justify-content:center;color:var(--accent);font-size:1rem">🏆</div>
+            <div>
+              <div style="font-size:0.88rem;font-weight:600;color:var(--text)">IELTS 6.0 — English Language Proficiency</div>
+              <div style="font-size:0.78rem;color:var(--muted)">2023 · British Council</div>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;gap:1rem;padding:0.8rem;background:rgba(255,255,255,0.03);border-radius:8px;">
+            <div style="width:36px;height:36px;background:rgba(239,68,68,0.15);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1rem">🇯🇵</div>
+            <div>
+              <div style="font-size:0.88rem;font-weight:600;color:var(--text)">J-CAT N4 — Japanese Computerized Adaptive Test</div>
+              <div style="font-size:0.78rem;color:var(--muted)">Continued self-study to N3 · Active working proficiency N3–N2 · <a href="https://www.j-cat2.org" target="_blank" style="color:var(--accent);text-decoration:none">j-cat2.org</a></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="langs-section">
+            <h4>Languages</h4>
+            <div class="lang-bars">
+              <div class="lang-bar">
+                <span class="lang-name">English</span>
+                <div class="lang-track"><div class="lang-fill" style="width:85%"></div></div>
+                <span class="lang-level">Professional</span>
+              </div>
+              <div class="lang-bar">
+                <span class="lang-name">Japanese</span>
+                <div class="lang-track"><div class="lang-fill" style="width:70%"></div></div>
+                <span class="lang-level">N3–N2 Working</span>
+              </div>
+              <div style="font-size:0.72rem;color:var(--subtle);margin-top:-0.4rem;padding-left:0;display:flex;align-items:center;gap:0.4rem">
+                <a href="https://www.j-cat2.org" target="_blank" style="background:rgba(239,68,68,0.15);color:#f87171;border:1px solid rgba(239,68,68,0.25);padding:0.1rem 0.5rem;border-radius:4px;font-family:'JetBrains Mono',monospace;font-size:0.68rem;text-decoration:none">J-CAT N4 Certified</a>
+                <span style="color:var(--subtle)">· Self-studied N3 · Daily fluency in Japanese corporate environment</span>
+              </div>
+              <div class="lang-bar">
+                <span class="lang-name">Bengali</span>
+                <div class="lang-track"><div class="lang-fill" style="width:100%"></div></div>
+                <span class="lang-level">Native</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ── AI CHAT WIDGET ── -->
+<button id="ai-chat-btn" aria-label="Chat with AI about Saiful">
+  <i class="fas fa-robot"></i>
+  <div class="chat-badge"></div>
+</button>
+
+<div id="ai-chat-panel" role="dialog" aria-label="Ask about Saiful">
+  <div class="chat-header">
+    <div class="chat-header-avatar">🤖</div>
+    <div class="chat-header-info">
+      <strong>Ask about Saiful</strong>
+      <span>AI Assistant · Online</span>
+    </div>
+    <button class="chat-close" id="chat-close" aria-label="Close chat">
+      <i class="fas fa-times"></i>
+    </button>
+  </div>
+
+  <div class="chat-messages" id="chat-messages">
+    <div class="msg bot">
+      Hi! I'm Saiful's AI assistant. Ask me anything about his experience, skills, projects, or background — I'm here to help. 👋
+    </div>
+  </div>
+
+  <div class="chat-suggestions" id="chat-suggestions">
+    <button class="chat-suggestion">What are his top skills?</button>
+    <button class="chat-suggestion">Tell me about KikuChat</button>
+    <button class="chat-suggestion">Any publications?</button>
+    <button class="chat-suggestion">Is he open to work?</button>
+  </div>
+
+  <div class="chat-input-row">
+    <textarea id="chat-input" placeholder="Ask me anything about Saiful…" rows="1"></textarea>
+    <button id="chat-send" aria-label="Send">
+      <i class="fas fa-paper-plane"></i>
+    </button>
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <p>Designed &amp; built by MD Saiful Islam &copy; <span id="year"></span> &nbsp;·&nbsp; Tokyo, Japan</p>
+  </div>
+</footer>
+
+<script>
+  // Year
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Hamburger
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('navLinks');
+  hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+  // Intersection observer for fade-up
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  // ── AI Chat ──
+  const SYSTEM_PROMPT = `You are a professional AI assistant on MD Saiful Islam's personal portfolio website. Your sole purpose is to answer questions about Saiful clearly, accurately, and in a friendly but professional tone. Only answer based on the information below. If asked something not covered, say you don't have that detail and suggest contacting Saiful directly at saiful.somum@gmail.com.
+
+## About Saiful
+- Full name: MD Saiful Islam
+- Title: Senior AI Engineer & Team Lead
+- Location: Tokyo, Japan
+- Email: saiful.somum@gmail.com | Phone: +81 70-9020-1850
+- LinkedIn: linkedin.com/in/somum | GitHub: github.com/somum
+- 5+ years of experience in deep learning, generative AI, and large-scale production ML systems
+
+## Current Role
+- AI Engineer (Level 2) — Team Lead at MASS Holdings Corporation, Tokyo (May 2020–Present)
+- Leading a team of 5 engineers
+
+## Key Projects
+1. KikuChat (2025–Present): Production RAG-based enterprise chatbot. Uses vLLM + Qwen models, Qdrant vector DB, cross-encoder re-ranking, FastAPI backend, PostgreSQL. Supports 100+ concurrent users at sub-200ms P95 latency. Improved FAQ accuracy by 40%.
+2. AI Hair Style Recommendation System (2023–2025): StyleGAN2 + HairFIT for hair visualization, ELYZA LLM + FAISS for personalized recommendations, RAG chatbot for customer support. 30% GPU inference speedup via CUDA optimization.
+3. Product Demand Forecasting (2022–2023): ML forecasting for Rakuten and L'Oréal supply chains. Models: FBProphet, ARIMA, XGBoost, TFT, N-BEATS. Reduced inventory costs by 25%.
+4. Image-Based Product Search (2022): Reverse image search using VGG19 (93% accuracy), ResNet50, DenseNet121, Keras-OCR. Sub-100ms search latency.
+5. Real-Time Hair Color Simulation (2021–2022): U-Net + MobileNetV3 hair segmentation trained on 26,918 images, HSL color transformation.
+
+## Previous Experience
+- AI Engineering Intern at UltraX Corporation (Sep–Nov 2020, Remote): Led team of 5 building ASR system with VOSK and Kaldi, PyQt5 desktop app
+- Software Engineer (Python Backend) at SAir BD Limited (Aug 2019–Feb 2020, Dhaka): Django-based travel agency ERP system, CRM, visa processing, OTA system
+
+## Technical Skills
+- Generative AI & LLMs: vLLM, RAG, Qwen, LLaMA, ELYZA, GPT-OSS, LoRA/QLoRA, Qdrant, FAISS, LangChain, Hugging Face, Prompt Engineering, Re-ranking, OpenAI-Compatible APIs
+- Deep Learning & CV: PyTorch, TensorFlow, Keras, Object Detection, Segmentation, GANs, StyleGAN2, ONNX, CUDA optimization, Quantization, Transfer Learning, Time-Series (TFT, N-BEATS)
+- Backend: Python (Expert), FastAPI, C++, TypeScript, RESTful APIs, Microservices, Django, Flask
+- Cloud & MLOps: Kubernetes, Docker, AWS (EC2, S3, EKS), GCP, ArgoCD, Jenkins, GitLab CI/CD, MLFlow
+- Data: PostgreSQL, MySQL, MongoDB, SQLite, NumPy, Pandas, Scikit-learn, ETL Pipelines
+
+## Education
+- B.Sc. Computer Science & Engineering — Ahsanullah University of Science & Technology, Dhaka (2015–2019). Specialized in AI, ML, Computer Vision. Thesis: real-time sign language detection.
+- Japanese Language & Business Culture Training — JICA B-JET Program, Japan (Mar–Jul 2020)
+
+## Publications
+1. "Real-time Bangla Sign Language Detection using Faster R-CNN" — IEEE ICIET 2018, Dhaka
+2. "BdSL36: A Dataset for Bangla Sign Language Alphabet Recognition" — ACCV 2020, Kyoto, Springer
+3. "Deep Learning-Based Industrial Fault Diagnosis using Induction Motor Bearing Signals" — Book Chapter, IGI Global
+
+## Key Achievements
+- 5+ AI projects delivered on time, 100% delivery rate
+- Sub-200ms P95 latency for LLM inference at 100+ concurrent users
+- 30% GPU inference speedup through CUDA optimization and ONNX conversion
+- 40% FAQ accuracy improvement via RAG and re-ranking
+- 25% inventory cost reduction for Rakuten and L'Oréal
+- 3 peer-reviewed international publications (IEEE, ACCV/Springer, IGI Global)
+
+## Languages
+- English: Professional (IELTS 6.0, 2023)
+- Japanese: Business level N3–N2 working proficiency. J-CAT (Japanese Computerized Adaptive Test) N4 certified. Further self-studied to N3. Works daily in a fully Japanese-language corporate environment.
+- Bengali: Native
+
+## Availability
+Saiful is open to senior AI engineering roles, technical leadership positions, and exciting AI research collaborations. Contact: saiful.somum@gmail.com`;
+
+  const chatBtn   = document.getElementById('ai-chat-btn');
+  const chatPanel = document.getElementById('ai-chat-panel');
+  const chatClose = document.getElementById('chat-close');
+  const chatInput = document.getElementById('chat-input');
+  const chatSend  = document.getElementById('chat-send');
+  const chatMsgs  = document.getElementById('chat-messages');
+  const suggestions = document.getElementById('chat-suggestions');
+
+  const history = [];
+
+  chatBtn.addEventListener('click', () => {
+    chatPanel.classList.toggle('open');
+    if (chatPanel.classList.contains('open')) chatInput.focus();
+  });
+
+  chatClose.addEventListener('click', () => chatPanel.classList.remove('open'));
+
+  suggestions.querySelectorAll('.chat-suggestion').forEach(btn => {
+    btn.addEventListener('click', () => {
+      sendMessage(btn.textContent);
+      suggestions.style.display = 'none';
+    });
+  });
+
+  chatInput.addEventListener('keydown', e => {
+    if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); triggerSend(); }
+  });
+
+  chatInput.addEventListener('input', () => {
+    chatInput.style.height = 'auto';
+    chatInput.style.height = Math.min(chatInput.scrollHeight, 100) + 'px';
+  });
+
+  chatSend.addEventListener('click', triggerSend);
+
+  function triggerSend() {
+    const text = chatInput.value.trim();
+    if (!text) return;
+    chatInput.value = '';
+    chatInput.style.height = 'auto';
+    suggestions.style.display = 'none';
+    sendMessage(text);
+  }
+
+  function addMsg(role, text) {
+    const div = document.createElement('div');
+    div.className = 'msg ' + (role === 'user' ? 'user' : 'bot');
+    div.textContent = text;
+    chatMsgs.appendChild(div);
+    chatMsgs.scrollTop = chatMsgs.scrollHeight;
+    return div;
+  }
+
+  function addTyping() {
+    const div = document.createElement('div');
+    div.className = 'msg bot typing';
+    div.innerHTML = '<span></span><span></span><span></span>';
+    chatMsgs.appendChild(div);
+    chatMsgs.scrollTop = chatMsgs.scrollHeight;
+    return div;
+  }
+
+  async function sendMessage(text) {
+    addMsg('user', text);
+    history.push({ role: 'user', content: text });
+    chatSend.disabled = true;
+    const typing = addTyping();
+
+    try {
+      const res = await fetch('https://openrouter.ai/api/v1/chat/completions', {
+        method: 'POST',
+        headers: {
+          'Authorization': 'Bearer YOUR_OPENROUTER_API_KEY',
+          'Content-Type': 'application/json',
+          'X-OpenRouter-Title': "Saiful Islam Portfolio"
+        },
+        body: JSON.stringify({
+          model: 'google/gemma-4-26b-a4b-it:free',
+          messages: [
+            { role: 'system', content: SYSTEM_PROMPT },
+            ...history
+          ],
+          max_tokens: 512,
+          temperature: 0.7
+        })
+      });
+
+      const data = await res.json();
+      console.log('[AI Chat] response:', data);
+      typing.remove();
+
+      if (data.choices && data.choices[0]) {
+        const reply = data.choices[0].message.content.trim();
+        history.push({ role: 'assistant', content: reply });
+        addMsg('bot', reply);
+      } else {
+        const errMsg = data.error?.message || JSON.stringify(data);
+        console.error('[AI Chat] API error:', errMsg);
+        addMsg('bot', '⚠️ API error: ' + errMsg);
+      }
+    } catch (err) {
+      typing.remove();
+      console.error('[AI Chat] fetch error:', err);
+      addMsg('bot', '⚠️ Network error: ' + err.message);
+    }
+
+    chatSend.disabled = false;
+    chatInput.focus();
+  }
+</script>
 </body>
-
 </html>
