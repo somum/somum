@@ -18,12 +18,14 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Inject secrets into index.html
+      - name: Inject API key into index.html
+        env:
+          ENV_FILE: ${{ secrets.ENV_FILE }}
         run: |
-          echo "${{ secrets.ENV_FILE }}" > .env
-          export $(cat .env | xargs)
-          sed -i "s/YOUR_OPENROUTER_API_KEY/${OPENROUTER_API_KEY}/g" index.html
-          rm .env
+          OPENROUTER_API_KEY=$(echo "$ENV_FILE" | grep "^OPENROUTER_API_KEY=" | cut -d '=' -f2-)
+          echo "Key found: ${#OPENROUTER_API_KEY} chars"
+          sed -i "s|YOUR_OPENROUTER_API_KEY|${OPENROUTER_API_KEY}|g" index.html
+          grep -o "Bearer .\{10\}" index.html || echo "Key injection check failed"
 
       - uses: actions/configure-pages@v4
 
